@@ -8,13 +8,15 @@
 //!		<b>Last Modified:			</b> 27/11/2011					\n
 //!		<b>Version:					</b> v1.0.0						\n
 //!		<b>Company:					</b> CladLabs					\n
-//!		<b>Project:					</b> Example Code				\n
-//!		<b>Computer Architecture:	</b> ARM						\n
+//!		<b>Project:					</b> Free Code Modules			\n
+//!		<b>Language:				</b> C							\n
 //!		<b>Compiler:				</b> GCC						\n
 //! 	<b>uC Model:				</b> PSoC5						\n
+//!		<b>Computer Architecture:	</b> ARM						\n
 //! 	<b>Operating System:		</b> FreeRTOS v7.2.0			\n
 //!		<b>Documentation Format:	</b> Doxygen					\n
-//!		
+//!		<b>License:					</b> GPLv3						\n
+//!			
 
 //===============================================================================================//
 //========================================= INCLUDES ============================================//
