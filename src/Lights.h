@@ -5,8 +5,8 @@
 //! @date 		09/09/2012
 //! @brief 		Header file for Lights.c.
 //! @details
-//!		<b>Last Modified:			</b> 27/09/2012					\n
-//!		<b>Version:					</b> v1.0.0						\n
+//!		<b>Last Modified:			</b> 09/10/2012					\n
+//!		<b>Version:					</b> v1.0.1						\n
 //!		<b>Company:					</b> CladLabs					\n
 //!		<b>Project:					</b> Free Code Modules			\n
 //!		<b>Language:				</b> C							\n
@@ -16,7 +16,13 @@
 //! 	<b>Operating System:		</b> FreeRTOS v7.2.0			\n
 //!		<b>Documentation Format:	</b> Doxygen					\n
 //!		<b>License:					</b> GPLv3						\n
-//!			
+//!	
+//!		See the Doxygen documentation or Lights.c for a detailed description on this module.
+//!				
+
+// Start of header guard
+#ifndef _LIGHTS_H
+#define _LIGHTS_H
 
 //===============================================================================================//
 //=================================== PUBLIC TYPEDEFS ===========================================//
@@ -49,7 +55,7 @@ typedef struct
 //=================================== PUBLIC FUNCTION PROTOTYPES ================================//
 //===============================================================================================//
 
-// See the function definitions in Bldc.c for more information
+// See the Doxygen documentation or the function definitions in Lights.c for more information
 
 void Lights_Start(uint32 mainBldcStackSize, uint8 mainBldcPriority);
 void Lights_SendCommandToTask(lightsCommandWord_t lightCommandWord, uint8 value1, uint8 value2);
@@ -58,6 +64,9 @@ void Lights_SendCommandToTask(lightsCommandWord_t lightCommandWord, uint8 value1
 //================================== PUBLIC VARIABLES/STRUCTURES ================================//
 //===============================================================================================//
 
+// none
 
+// End of header guard
+#endif
 
 // EOF

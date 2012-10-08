@@ -5,8 +5,8 @@
 //! @date 		09/11/2012
 //! @brief 		Controls any lights (e.g. LEDS).
 //! @details
-//!		<b>Last Modified:			</b> 27/11/2011					\n
-//!		<b>Version:					</b> v1.0.0						\n
+//!		<b>Last Modified:			</b> 09/10/2012					\n
+//!		<b>Version:					</b> v1.0.1						\n
 //!		<b>Company:					</b> CladLabs					\n
 //!		<b>Project:					</b> Free Code Modules			\n
 //!		<b>Language:				</b> C							\n
@@ -274,6 +274,7 @@ void Lights_Task(void *pvParameters)
 }
 
 //! @brief		Wrapper function used by external tasks to send a command to the lights task
+//! @sa			Lights_Task()
 //! @public
 void Lights_SendCommandToTask(lightsCommandWord_t lightCommandWord, uint8 value1, uint8 value2)
 {
