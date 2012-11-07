@@ -1,12 +1,12 @@
 //!
 //! @file 		Lights.c
-//! @author 	Geoffrey Hunter (gbmhunter@gmail.com)
+//! @author 	Geoffrey Hunter <gbmhunter@gmail.com> (www.cladlab.com)
 //! @edited 	n/a
 //! @date 		09/11/2012
-//! @brief 		Controls any lights (e.g. LEDS).
+//! @brief 		See Lights.h
 //! @details
-//!		<b>Last Modified:			</b> 09/10/2012					\n
-//!		<b>Version:					</b> v1.0.1						\n
+//!		<b>Last Modified:			</b> 07/11/2012					\n
+//!		<b>Version:					</b> v1.0.2						\n
 //!		<b>Company:					</b> CladLabs					\n
 //!		<b>Project:					</b> Free Code Modules			\n
 //!		<b>Language:				</b> C							\n
@@ -16,7 +16,9 @@
 //! 	<b>Operating System:		</b> FreeRTOS v7.2.0			\n
 //!		<b>Documentation Format:	</b> Doxygen					\n
 //!		<b>License:					</b> GPLv3						\n
-//!			
+//!		
+//!		See the Doxygen documentation or Lights.h for a detailed description on this module.	
+//!
 
 //===============================================================================================//
 //========================================= INCLUDES ============================================//
@@ -39,8 +41,12 @@
 #include "UartComms.h"
 
 //===============================================================================================//
-//================================== PRECOMPILER CHECKS =========================================//
+//============================================ GUARDS ===========================================//
 //===============================================================================================//
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
 
 #ifndef configENABLE_TASK_LIGHTS
 	#error Please define the switch configENABLE_TASK_LIGHTS
@@ -111,10 +117,8 @@ void Lights_Task(void *pvParameters);
 //===================================== PUBLIC FUNCTIONS ========================================//
 //===============================================================================================//
 
-//! @brief		Start-up function. Call from main() before starting scheduler
-//! @note		Not thread-safe. Do not call from any task!
-//! @sa			main()
-//! @public
+// See the Doxygen documentation or the function declarations in Lights.h for more information
+
 void Lights_Start(uint32 lightsTaskStackSize, uint8 lightsTaskPriority)
 {
 	#if(configENABLE_TASK_LIGHTS == 1)
@@ -133,11 +137,28 @@ void Lights_Start(uint32 lightsTaskStackSize, uint8 lightsTaskPriority)
 	
 }
 
+
+void Lights_SendCommandToTask(lightsCommandWord_t lightCommandWord, uint8 value1, uint8 value2)
+{
+	lightsCommandStruct_t lightsCommandStruct = 
+	{
+		.commandWord = lightCommandWord,
+		.value1 = value1,
+		.value2 = value2
+	};
+	xQueueSendToBack(_lightsTaskCommandQueue, &lightsCommandStruct , configMAX_QUEUE_WAIT_TIME_MS_BLDC_TASK/portTICK_RATE_MS);
+}
+
+
+//===============================================================================================//
+//==================================== PRIVATE FUNCTIONS ========================================//
+//===============================================================================================//
+
 //! @brief 		Light task.
 //! @param		*pvParameters Void pointer (not used)
 //! @note		Not thread-safe. Do not call from any task, this function is a task that
 //!				is called by the FreeRTOS kernel
-//! @public
+//! @private
 void Lights_Task(void *pvParameters)
 {
 	#if(configPRINT_DEBUG_LIGHTS == 1)
@@ -273,20 +294,8 @@ void Lights_Task(void *pvParameters)
 	}
 }
 
-//! @brief		Wrapper function used by external tasks to send a command to the lights task
-//! @sa			Lights_Task()
-//! @public
-void Lights_SendCommandToTask(lightsCommandWord_t lightCommandWord, uint8 value1, uint8 value2)
-{
-	lightsCommandStruct_t lightsCommandStruct = 
-	{
-		.commandWord = lightCommandWord,
-		.value1 = value1,
-		.value2 = value2
-	};
-	xQueueSendToBack(_lightsTaskCommandQueue, &lightsCommandStruct , configMAX_QUEUE_WAIT_TIME_MS_BLDC_TASK/portTICK_RATE_MS);
-}
+#ifdef __cplusplus
+	} // extern "C" {
+#endif
 
-//===============================================================================================//
-//==================================== PRIVATE FUNCTIONS ========================================//
-//===============================================================================================//
+// EOF
