@@ -6,7 +6,7 @@
 //! @brief 		See Lights.h
 //! @details
 //!		<b>Last Modified:			</b> 07/11/2012					\n
-//!		<b>Version:					</b> v1.0.2						\n
+//!		<b>File Version:			</b> 							\n
 //!		<b>Company:					</b> CladLabs					\n
 //!		<b>Project:					</b> Free Code Modules			\n
 //!		<b>Language:				</b> C							\n
@@ -17,7 +17,7 @@
 //!		<b>Documentation Format:	</b> Doxygen					\n
 //!		<b>License:					</b> GPLv3						\n
 //!		
-//!		See the Doxygen documentation or Lights.h for a detailed description on this module.	
+//!		See README.rst, generate Doxygen documentation or see Lights.h for more information on this module.	
 //!
 
 //===============================================================================================//
@@ -38,7 +38,6 @@
 #include "Config.h"
 #include "Lights.h"
 #include "UartDebug.h"
-#include "UartComms.h"
 
 //===============================================================================================//
 //============================================ GUARDS ===========================================//
@@ -51,7 +50,6 @@
 #ifndef configENABLE_TASK_LIGHTS
 	#error Please define the switch configENABLE_TASK_LIGHTS
 #endif
-
 #ifndef configPRINT_DEBUG_LIGHTS
 	#error Please define the switch configPRINT_DEBUG_LIGHTS
 #endif
