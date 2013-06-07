@@ -4,8 +4,8 @@ Light Controller Library
 
 - Author: gbmhunter <gbmhunter@gmail.com> (http://www.cladlab.com)
 - Created: 2012/03/19
-- Last Modified: 2013/05/15
-- Library Version: v1.0.3.0
+- Last Modified: 2013/06/08
+- Library Version: v1.0.3.1
 - Company: CladLabs
 - Project: Free Code Libraries	.
 - Language: C
@@ -91,7 +91,12 @@ Add functionality for any new commands in Light.c.
 Changelog
 =========
 
-- v1.0.0.0 	-> () Initial version.
-- v1.0.1.0 	-> () Added header guard, modified a few other comments.
-- v1.0.2.0 	-> () Moved documentation into .h file. Added C++ header guard.	Added detail comments to some functions. Removed '_' prefix from header guard ID (restricted namespace).
-- v1.0.3.0  -> (2013/05/15) Added README.rst. Moved appropriate info into this file. Added usage info. Deleted unneeded "#include UartComms.h".
+======== ========== ===================================================================================================
+Version  Date       Comment
+======== ========== ===================================================================================================
+v1.0.3.1 2013/06/08 README Changelog now in reverse chronological order and in table format.
+v1.0.3.0 2013/05/15 Added README.rst. Moved appropriate info into this file. Added usage info. Deleted unneeded "#include UartComms.h".
+v1.0.2.0 2012/11/06	Moved documentation into .h file. Added C++ header guard.	Added detail comments to some functions. Removed '_' prefix from header guard ID (restricted namespace).
+v1.0.1.0 2012/10/08	Added header guard, modified a few other comments.
+v1.0.0.0 2012/09/26	First versioned commit.
+======== ========== ===================================================================================================
